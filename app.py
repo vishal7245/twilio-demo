@@ -22,8 +22,12 @@ def voice():
     response = VoiceResponse()
     say = Say('Hi', voice='Polly.Emma')
     say.break_(strength='x-weak', time='100ms')
-    say.p('Welcome to the Tony Teaches Tech voice mail box.')
-    say.p('Please subscribe, then leave me a message.')
+    say.p("""Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you""")
     say.break_(strength='x-weak', time='50ms')
     say.p('Goodbye!')
 
@@ -36,12 +40,12 @@ def voice():
 
 @app.route('/')
 def index():
-    return """<p>Subscribe to
-    <a href='https://youtube.com/tonyteachestech/'>
-        Tony Teaches Tech</a>!</p>
+    return """<p>Hi this is Vishal!</p>
     """
 
 
 if __name__ == '__main__':
-    app.run(host='phone.tonyteaches.tech', port=5000)
+    app.run(host='0.0.0.0', port=5000)
 
+from waitress import serve
+serve(app, host='0.0.0.0', port=8080)
